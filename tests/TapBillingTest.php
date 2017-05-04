@@ -103,7 +103,7 @@ class TapBillingTest  extends PHPUnit_Framework_TestCase
 
         $customer = $this->createCustomer();
 
-        $billing->setCustomerInfo($customer);
+        $billing->setCustomer($customer);
 
         $this->assertEquals($customer,$billing->getCustomerInfo());
 
@@ -120,7 +120,7 @@ class TapBillingTest  extends PHPUnit_Framework_TestCase
 
         $product = $this->createProduct();
 
-        $billing->setProductInfo([$product]);
+        $billing->setProducts([$product]);
 
         $this->assertEquals([$product],$billing->getProductInfo());
 
@@ -136,7 +136,7 @@ class TapBillingTest  extends PHPUnit_Framework_TestCase
 
         $product = $this->createMerchant();
 
-        $billing->setMerchantInfo($product);
+        $billing->setMerchant($product);
 
         $this->assertEquals($product,$billing->getMerchantInfo());
 
@@ -153,7 +153,7 @@ class TapBillingTest  extends PHPUnit_Framework_TestCase
         $product2 = $this->createProduct(['TotalPrice'=>'100']);
         $product3 = $this->createProduct(['TotalPrice'=>'400']);
 
-        $billing->setProductInfo([$product1,$product2,$product3]);
+        $billing->setProducts([$product1,$product2,$product3]);
 
         $sum = $billing->getTotalAmount();
 
@@ -174,7 +174,7 @@ class TapBillingTest  extends PHPUnit_Framework_TestCase
             'UnitName' => 'Subscription Title',
             'UnitPrice' => '500',
         ];
-        $billing->setProductInfo([$product]);
+        $billing->setProducts([$product]);
     }
 
 
@@ -189,9 +189,9 @@ class TapBillingTest  extends PHPUnit_Framework_TestCase
         $merchant = $this->createMerchant();
         $customer = $this->createCustomer();
 
-        $billing->setProductInfo([$product]);
-        $billing->setMerchantInfo($merchant);
-        $billing->setCustomerInfo($customer);
+        $billing->setProducts([$product]);
+        $billing->setMerchant($merchant);
+        $billing->setCustomer($customer);
 
         $payment = $billing->requestPayment();
 
@@ -202,6 +202,49 @@ class TapBillingTest  extends PHPUnit_Framework_TestCase
         $this->assertObjectHasAttribute('ReferenceID',$response);
         $this->assertNotEmpty($response->ReferenceID);
         $this->assertNotEmpty($response->PaymentURL);
+    }
+
+    public function doc()
+    {
+
+        $products =
+            [
+                [
+                    'Quantity' => '1',
+                    'TotalPrice' => '500',
+                    'UnitName' => 'Product Name',
+                    'UnitDesc' => 'Product Description',
+                    'UnitPrice' => '500',
+                ],
+                [
+                    'Quantity' => '2',
+                    'TotalPrice' => '300',
+                    'UnitName' => 'Product Name',
+                    'UnitDesc' => 'Product Description',
+                    'UnitPrice' => '150',
+                ]
+            ];
+
+        $customer =
+            [
+                'Email' => 'customer@email.com',
+                'Name' => 'Awesome Customer',
+                'Mobile' => '9999999',
+            ];
+
+        $billing = new TapBilling(
+            [
+                'ApiKey' => '1tap7',
+                'UserName' => 'test',
+                'Password' => 'test',
+                'MerchantID' => '1014'
+            ]
+        );
+
+        $billing->setProducts($products);
+        $billing->setCustomer($products);
+        $billing->setGateway($products);
+        $billing->setMerchant($products);
     }
 
 

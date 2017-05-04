@@ -43,7 +43,7 @@ class TapBilling implements Billing
 
     }
 
-    public function setCustomerInfo($options)
+    public function setCustomer(array $options)
     {
 
         $this->checkForMissingKeys(['Name','Email','Mobile'], $options);
@@ -51,7 +51,7 @@ class TapBilling implements Billing
         $this->customerInfo = $options;
     }
 
-    public function setProductInfo(array $options)
+    public function setProducts(array $options)
     {
 
         foreach($options as $option) {
@@ -62,13 +62,13 @@ class TapBilling implements Billing
 
     }
 
-    public function setGatewayInfo(array $options)
+    public function setGateway(array $options)
     {
         $this->checkForMissingKeys(['Name'], $options);
         $this->gatewayInfo = $options;
     }
 
-    public function setMerchantInfo(array $options)
+    public function setMerchant(array $options)
     {
 
         $this->merchantInfo = $options;
