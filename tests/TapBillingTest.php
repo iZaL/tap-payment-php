@@ -193,13 +193,16 @@ class TapBillingTest  extends PHPUnit_Framework_TestCase
         $billing->setProductInfo([$product]);
         $billing->setMerchantInfo($merchant);
         $billing->setCustomerInfo($customer);
-        $request = $billing->requestPayment();
 
-        $this->assertEquals('Success',$request->ResponseMessage);
-        $this->assertObjectHasAttribute('PaymentURL',$request);
-        $this->assertObjectHasAttribute('ReferenceID',$request);
-        $this->assertNotEmpty($request->ReferenceID);
-        $this->assertNotEmpty($request->PaymentURL);
+        $payment = $billing->requestPayment();
+
+        $response = $payment->response->getRawResponse();
+
+        $this->assertEquals('Success',$response->ResponseMessage);
+        $this->assertObjectHasAttribute('PaymentURL',$response);
+        $this->assertObjectHasAttribute('ReferenceID',$response);
+        $this->assertNotEmpty($response->ReferenceID);
+        $this->assertNotEmpty($response->PaymentURL);
     }
 
 

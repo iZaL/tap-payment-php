@@ -24,6 +24,8 @@ class TapBilling implements Billing
     protected $gatewayInfo = [];
     protected $merchantInfo = [];
 
+    public $response = '';
+
     protected $requiredConstructorKeys = ['ApiKey','MerchantID','UserName','Password'];
 
     public function __construct(array $options = [])
@@ -143,9 +145,9 @@ class TapBilling implements Billing
                 ]
             ]);
 
-        $response = json_decode($request->getBody());
+        $this->response = new TapBillingResponse($request);
 
-        return $response;
+        return $this;
     }
 
     private function buildMerchant() {
