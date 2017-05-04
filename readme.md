@@ -25,10 +25,10 @@ $config =
         'Password' => 'test',
         'MerchantID' => '1014',
         'ErrorURL' => 'http://test.com/error-url'; // optional. default(NULL)
-        'PaymentOption = 'KNET'; // optional. default (ALL)
-        'AutoReturn = 'N'; // optional. default (Y)
-        'CurrencyCode = 'KWD'; // optional. default (KWD)
-        'LangCode = 'EN'; // optional. default(AR)
+        'PaymentOption' = 'KNET'; // optional. default (ALL)
+        'AutoReturn' = 'N'; // optional. default (Y)
+        'CurrencyCode' = 'KWD'; // optional. default (KWD)
+        'LangCode' = 'EN'; // optional. default(AR)
     ];
 
 /**
