@@ -25,9 +25,34 @@ $config =
         'ApiKey' => '1tap7',
         'UserName' => 'test',
         'Password' => 'test',
-        'MerchantID' => '1014'
+        'MerchantID' => '1014',
+        'ErrorURL' => 'http://test.com/error-url'; // optional. default(NULL)
+        'PaymentOption = 'KNET'; // optional. default (ALL)
+        'AutoReturn = 'N'; // optional. default (Y)
+        'CurrencyCode = 'KWD'; // optional. default (KWD)
+        'LangCode = 'EN'; // optional. default(AR)
     ];
 
+/**
+
+set the products that has to be purchased by the customer
+
+required fields (
+    Quantity, 
+    TotalPrice,
+    UnitName,
+    UnitDesc,
+    UnitPrice
+)
+
+optional fields (
+   ImgUrl,
+   VndID
+)
+
+note that you dont need to pass currency code in products list, as you are already passing it in the config.
+
+**/
 $products =
     [
         [
@@ -53,10 +78,10 @@ $customer =
         'Mobile' => '9999999',
     ];
 
-$gateway =
-    [
-        'Name' => 'ALL'
-    ];
+// by default the package sets gateway to 'ALL', however, you can pass the below method if you need to set the gateway to other available options (KNET,VISA,MASTER,AMEX) 
+
+// optional
+$gateway = ['Name' => 'KNET'];
 
 $merchant =
     [
@@ -64,9 +89,7 @@ $merchant =
         'ReferenceID' => uniqid(),
     ];
 
-$billing = new TapBilling(
-    $config
-);
+$billing = new TapBilling($config);
 
 $billing->setProducts($products);
 $billing->setCustomer($customer);
@@ -90,9 +113,5 @@ $paymentReferenceID = $response->ReferenceID;
 
 ```
 
-You can pass 
-```
 
-```
-
-read the official tap documentation to know all the details of the response object
+read the [official tap documentatio](https://www.tap.company/developers) to know all the details of the response object
