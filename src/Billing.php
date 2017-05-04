@@ -10,7 +10,7 @@ interface Billing
      * @return mixed
      * for more info check (https://www.tap.company/developers/)
      */
-    public function setMerchantInfo(array $options);
+    public function setMerchantInfo($options);
 
     /**
      * Set Customer Information
@@ -18,7 +18,7 @@ interface Billing
      * @return mixed
      * for more info check (https://www.tap.company/developers/)
      */
-    public function setCustomerInfo(array $options);
+    public function setCustomerInfo($options);
 
     /**
      * Set Customer Information
@@ -26,7 +26,7 @@ interface Billing
      * @return mixed
      * for more info check (https://www.tap.company/developers/)
      */
-    public function setProductInfo(array $options);
+    public function setProductInfo($options);
 
     /**
      * Set Gateway Information
@@ -34,7 +34,7 @@ interface Billing
      * @return mixed
      * for more info check (https://www.tap.company/developers/)
      */
-    public function setGatewayInfo(array $options);
+    public function setGatewayInfo($options);
 
     /**
      * Perform Payment
