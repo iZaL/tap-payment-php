@@ -4,7 +4,7 @@
 
 This is a package to integrate [Tap Payments](https://www.tap.company/) with Php.
 
-##Documentation
+## Documentation
 
 ## Installation
 
@@ -81,7 +81,7 @@ $response = $paymentRequest->response->getRawResponse();
 
 ```
 
-With the response object, you can get redirect the user to the payment page
+With the response object, you can redirect the user to the payment page
 
 ```
 
