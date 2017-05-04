@@ -28,7 +28,7 @@ class TapBilling implements Billing
 
     protected $requiredConstructorKeys = ['ApiKey','MerchantID','UserName','Password'];
 
-    public function __construct($options = [])
+    public function __construct(array $options = [])
     {
 
         foreach($options as $key => $val) {
@@ -51,7 +51,7 @@ class TapBilling implements Billing
         $this->customerInfo = $options;
     }
 
-    public function setProductInfo($options)
+    public function setProductInfo(array $options)
     {
 
         foreach($options as $option) {
@@ -62,13 +62,13 @@ class TapBilling implements Billing
 
     }
 
-    public function setGatewayInfo($options)
+    public function setGatewayInfo(array $options)
     {
         $this->checkForMissingKeys(['Name'], $options);
         $this->gatewayInfo = $options;
     }
 
-    public function setMerchantInfo($options)
+    public function setMerchantInfo(array $options)
     {
 
         $this->merchantInfo = $options;
@@ -204,7 +204,7 @@ class TapBilling implements Billing
         return $hashedString;
     }
 
-    private function checkForMissingKeys($requiredKeys, $options)
+    private function checkForMissingKeys(array $requiredKeys, array $options)
     {
 
         if(!is_array($options)) {
