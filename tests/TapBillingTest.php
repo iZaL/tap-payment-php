@@ -207,6 +207,14 @@ class TapBillingTest  extends PHPUnit_Framework_TestCase
     public function doc()
     {
 
+        $config =
+            [
+                'ApiKey' => '1tap7',
+                'UserName' => 'test',
+                'Password' => 'test',
+                'MerchantID' => '1014'
+            ];
+
         $products =
             [
                 [
@@ -232,19 +240,25 @@ class TapBillingTest  extends PHPUnit_Framework_TestCase
                 'Mobile' => '9999999',
             ];
 
-        $billing = new TapBilling(
+        $gateway =
             [
-                'ApiKey' => '1tap7',
-                'UserName' => 'test',
-                'Password' => 'test',
-                'MerchantID' => '1014'
-            ]
+                'Name' => 'ALL'
+            ];
+
+        $merchant =
+            [
+                'ReturnURL' => 'http://test.com/payment/returnurl',
+                'ReferenceID' => uniqid(),
+            ];
+
+        $billing = new TapBilling(
+            $config
         );
 
         $billing->setProducts($products);
-        $billing->setCustomer($products);
-        $billing->setGateway($products);
-        $billing->setMerchant($products);
+        $billing->setCustomer($customer);
+        $billing->setGateway($gateway);
+        $billing->setMerchant($merchant);
     }
 
 
