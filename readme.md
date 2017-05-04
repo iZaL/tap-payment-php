@@ -32,25 +32,26 @@ $config =
     ];
 
 /**
+*
+* set the products that has to be purchased by the customer
+*
+* required fields (
+*     Quantity, 
+*     TotalPrice,
+*     UnitName,
+*     UnitDesc,
+*     UnitPrice
+* )
+* 
+* optional fields (
+*    ImgUrl,
+*    VndID
+* )
+* 
+* note that you dont need to pass currency code in products list, as you are already passing it in the config.
+* 
+*/
 
-set the products that has to be purchased by the customer
-
-required fields (
-    Quantity, 
-    TotalPrice,
-    UnitName,
-    UnitDesc,
-    UnitPrice
-)
-
-optional fields (
-   ImgUrl,
-   VndID
-)
-
-note that you dont need to pass currency code in products list, as you are already passing it in the config.
-
-**/
 $products =
     [
         [
@@ -112,3 +113,4 @@ $paymentReferenceID = $response->ReferenceID;
 ```
 
 read the [official tap documentatio](https://www.tap.company/developers) to know all the details of the response object
+
