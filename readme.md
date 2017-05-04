@@ -17,7 +17,6 @@ composer require izal/tap-payment-php
 
 ### Usage:
 
-For Lumen, register a different Provider in `bootstrap/app.php`:
 
 ```php
 
