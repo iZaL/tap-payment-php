@@ -170,7 +170,6 @@ class TapBillingTest  extends PHPUnit_Framework_TestCase
         $billing = $this->createBilling();
         $product = [
             'Quantity' => '1',
-//            'TotalPrice' => '500',
             'UnitDesc' => 'Subscription Title',
             'UnitName' => 'Subscription Title',
             'UnitPrice' => '500',
