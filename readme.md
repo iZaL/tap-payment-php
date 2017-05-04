@@ -14,9 +14,7 @@ Require this package with composer:
 composer require izal/tap-payment-php
 ```
 
-
 ### Usage:
-
 
 ```php
 
@@ -112,6 +110,5 @@ $paymentURL = $response->PaymentURL;
 $paymentReferenceID = $response->ReferenceID;
 
 ```
-
 
 read the [official tap documentatio](https://www.tap.company/developers) to know all the details of the response object
