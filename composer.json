@@ -1,6 +1,6 @@
 {
   "name": "izal/tap-payment-php",
-  "description": "Php bridge for Tap Payment Gateway",
+  "description": "Php SDK for Tap Payment Gateway",
   "license": "MIT",
   "keywords": ["tap","tap payment"],
   "authors": [
