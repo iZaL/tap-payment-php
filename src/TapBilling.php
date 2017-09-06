@@ -12,7 +12,7 @@ class TapBilling implements Billing
     protected $UserName;
     protected $Password;
     protected $ErrorURL;
-    protected $PaymentURL = 'http://tapapi.gotapnow.com/TapWebConnect/Tap/WebPay/PaymentRequest';
+    protected $PaymentURL = 'https://www.gotapnow.com/TapWebConnect/Tap/WebPay';
     protected $PaymentOption = 'ALL';
     protected $AutoReturn = 'Y';
     protected $CurrencyCode = 'KWD';
@@ -218,4 +218,8 @@ class TapBilling implements Billing
         }
     }
 
+    public function setPaymentURL($url)
+    {
+        return $this->PaymentURL = $url;
+    }
 }

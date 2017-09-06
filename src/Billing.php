@@ -44,4 +44,7 @@ interface Billing
 
 
     public function getCustomerInfo();
+
+    public function setPaymentURL($url);
+
 }
