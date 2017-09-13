@@ -12,7 +12,7 @@ class TapBilling implements Billing
     protected $UserName;
     protected $Password;
     protected $ErrorURL;
-    protected $PaymentURL = 'https://www.gotapnow.com/TapWebConnect/Tap/WebPay';
+    protected $PaymentURL = 'https://www.gotapnow.com/TapWebConnect/Tap/WebPay/PaymentRequest';
     protected $PaymentOption = 'ALL';
     protected $AutoReturn = 'Y';
     protected $CurrencyCode = 'KWD';
