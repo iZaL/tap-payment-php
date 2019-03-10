@@ -88,7 +88,7 @@ $merchant =
         'ReferenceID' => uniqid(),
     ];
 
-$billing = new TapBilling($config);
+$billing = new IZaL\Tap\TapBilling($config);
 
 $billing->setProducts($products);
 $billing->setCustomer($customer);
@@ -112,5 +112,5 @@ $paymentReferenceID = $response->ReferenceID;
 
 ```
 
-read the [official tap documentatio](https://www.tap.company/developers) to know all the details of the response object
+read the [official tap documentation](https://www.tap.company/developers) to know all the details of the response object
 
