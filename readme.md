@@ -96,21 +96,30 @@ $billing->setGateway($gateway);
 $billing->setMerchant($merchant);
 
 // request for payment url
-$paymentRequest = $billing->requestPayment();
 
-// get the response
-$response = $paymentRequest->response->getRawResponse();
+try {
 
-```
+    $paymentRequest = $billing->requestPayment();
 
-With the response object, you can redirect the user to the payment page
+    $response = $paymentRequest->response->getRawResponse();
 
-```
+    $paymentURL = $response->PaymentURL;
 
-$paymentURL = $response->PaymentURL;
-$paymentReferenceID = $response->ReferenceID;
+    
+    // With the response object, you can redirect the user to the payment page
+    
+    // redirect url
+    $paymentURL = $response->PaymentURL;
+    
+    // reference id
+    $paymentReferenceID = $response->ReferenceID;
 
-```
+} catch (\Exception $e) {
+
+    // var_dump($e->getMessage());
+    // do something with the error
+
+}
 
 read the [official tap documentation](https://www.tap.company/developers) to know all the details of the response object
 
